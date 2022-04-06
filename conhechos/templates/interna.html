@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="src/media/favicon-16x16.png" type="image/png">
+	<link rel="shortcut icon" href="src/media/favicon-32x32.png" type="image/png">
+	<link rel="shortcut icon" href="src/media/favicon-96x96.png" type="image/png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'src/styles/index.css'%}">
+	<title></title>
+</head>
+
+<body>
+	<header>
+		<div class="container-hd">
+			<div class="logo-redes-buscador">
+				<a href="index.html">
+					<img src="{% static 'src/media/logo-es-con-hechos.png'%}" alt="es con hechos que le cumplimos a colombia"
+						width="250" height="70" tabindex="1" class="img-fluid"></a>
+				<div class="redes-buscador">
+					<div class="redes">
+						<a href="https://www.facebook.com/PresidenciadeColombia" target="_blank"><img src="{% static 'src/media/facebook.png'%}" alt="facebook" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://twitter.com/infopresidencia" target="_blank"><img src="{% static 'src/media/twitter.png'%}" alt="twitter" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://www.youtube.com/user/SIGCOLOMBIA" target="_blank"><img src="{% static 'src/media/youtube.png'%}" alt="youtube" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://www.instagram.com/infopresidencia/" target="_blank"><img src="{% static 'src/media/instagram.png'%}" alt="instagram" width="30px" height="30px" class="img-fluid"></a>
+					</div>
+					<form action="/eje/{{eje.eje}}" method="POST">
+						{% csrf_token %}
+						<input type="text" placeholder="Buscar" name="palabra">
+						<button type="submit"></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hechos">
+			<div class="container-hd">
+				<div class="cards">
+                    {% for descripciones in listadescripciones%}
+					<form>
+						<article>
+							<img src="{{descripciones.imagen.url}}" alt="" id="imagen">
+							<h6 class="title">{{descripciones.titulo}}</h6>
+							<p>{{descripciones.descripcion}}</p>
+							<input type="hidden" name="CSRFToken"
+								value="OWY4NmQwODE4ODRjN2Q2NTlhMmZlYWEwYzU1YWQwMTVhM2JmNGYxYjJiMGI4MjJjZDE1ZDZMGYwMGEwOA==">
+							<a type="button" data-modal="modal-one"
+								onclick="seleccionado('{{descripciones.imagen.url}}','{{descripciones.titulo}}','{{descripciones.descripcion}}')">Ver
+								más</a>
+						</article>
+					</form>
+		 {%endfor%}
+					<div class="modal" id="modal-one">
+						<div class="modal-bg modal-exit"></div>
+						<div class="modal-container">
+							<img id="image" src="" alt="">
+							<h6 class="title" id="titulo">{{descripciones.titulo}}</h6>
+							<p id="parraf">{{descripciones.descripcion}}</p>
+							<button class="modal-close modal-exit">X</button>
+						</div>
+					</div>
+				</div>
+				{% if validar == 2 %}
+				<div id="alert">
+					<h1 style="text-align: center; font-family: 'Courier New', Courier, monospace; color: #333; font-size: 40px;">No se encontraron resultados de la busqueda relacionada</h1>
+				</div>
+				{%endif%}
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>Todos los derechos reservados Gobierno de Colombia.</p>
+	</footer>
+	<script src="{% static 'src/js/index.js'%}"></script>
+    <script>
+        function seleccionado(url,titulo,parrafo){
+            imagen = document.getElementById('image');
+            imagen.src = "../../static"+url;
+            document.getElementById('titulo').innerHTML = titulo;
+            document.getElementById('parraf').innerHTML = parrafo;
+            console.log(url);
+            console.log(titulo);
+            console.log(parrafo)
+        }
+    </script>
+</body>
+
+</html>

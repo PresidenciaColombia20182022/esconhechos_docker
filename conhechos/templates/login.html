@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <title>Login in | Django site admin</title>
+    <link rel="stylesheet" href="{% static 'src/styles/login.css' %}">
+</head>
+
+<body>
+
+<div id="login-header">
+    <h2>Login</h2>
+</div>
+    <div id="login" class="login">
+        <form autocomplete="off" action="" method="post">
+            {% csrf_token %}
+            {{form }}
+            <br/>
+            <div class="g-recaptcha" id="rcaptcha" data-callback="correctCaptcha"
+                data-sitekey="6LeqeRAbAAAAADOBoR_k-Pc97e4yQsF1xz6ev3NQ"></div>
+	   
+            <input type="submit" id="boton" disabled value="Login in">
+        </form>
+    </div>
+</body>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$('#id_password').attr('autocomplete', 'off');
+</script>
+<script type="text/javascript">
+    var correctCaptcha = function (response) {
+        if (response.length == 0) {
+        }
+        else {
+            document.getElementById("boton").disabled = false;
+        }
+    };
+
+</script>
+
+</html>
+
+

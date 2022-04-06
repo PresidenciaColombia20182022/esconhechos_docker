@@ -1,0 +1,71 @@
+#login-header{
+    margin: 100px 50px 0px 500px;
+    width: 30%;
+    height: 50px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    background: #417690;
+}
+#login-header h2{
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+#login{
+    width: 27%;
+    height: 300px;
+    margin: 0px 50px 0px 500px;
+    border: 0,1px solid gray;
+    padding: 20px 19px 0;
+    color: #333;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+
+input {
+    outline: none;
+    display: block;
+    background: rgba(black, 0.1);
+    width: 100%;
+    border: 0;
+    margin: 5px 0px 0px 0px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    color: gray;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: semibold;
+    line-height: inherit;
+    transition: 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 9px 6px;
+    margin-top: 0;
+    
+  }
+
+#boton{
+    background: #79aec8;
+    margin: 10px 100px 400px 150px;
+    width: 80px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+li {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    padding: 10px 12px;
+    margin: 0 0 10px 0;
+    color: #ba2121;
+    border: 1px solid #ba2121;
+    border-radius: 4px;
+    background-color: #fff;
+    background-position: 5px 12px;
+}

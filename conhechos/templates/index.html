@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="src/media/favicon-16x16.png" type="image/png">
+  <link rel="shortcut icon" href="src/media/favicon-32x32.png" type="image/png">
+  <link rel="shortcut icon" href="src/media/favicon-96x96.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.5.0/dist/css/splide.min.css">
+  <link rel="stylesheet" href="{% static 'src/styles/index.css'%}">
+  <title></title>
+</head>
+
+<body>
+  <header>
+    <div class="container-hd">
+      <div class="logo-redes-buscador">
+        <img src="{% static 'src/media/logo-es-con-hechos.png'%}" alt="es con hechos que le cumplimos a colombia" width="250"
+          height="70" tabindex="1" class="img-fluid">
+        <div class="redes-buscador">
+          <div class="redes">
+            <a href="https://www.facebook.com/PresidenciadeColombia" target="_blank"><img src="{% static 'src/media/facebook.png'%}" alt="facebook" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://twitter.com/infopresidencia" target="_blank"><img src="{% static 'src/media/twitter.png'%}" alt="twitter" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://www.youtube.com/user/SIGCOLOMBIA" target="_blank"><img src="{% static 'src/media/youtube.png'%}" alt="youtube" width="30px" height="30px" class="img-fluid"></a>
+            <a href="https://www.instagram.com/infopresidencia/" target="_blank"><img src="{% static 'src/media/instagram.png'%}" alt="instagram" width="30px" height="30px" class="img-fluid"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="carrusel">
+      <div class="container-fullhd">
+        <div id="splide__principal" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <!-- <li class="splide__slide">
+                <img src="src/media/hero1.jpg" width="1920" height="700" class="img-fluid">
+                <div class="splide__caption">
+                  <h1 class="title caption">Es con Hechos <br> que le cumplimos <br> a Colombia</h1>
+                </div>
+              </li>
+              <li class="splide__slide">
+                <img src="src/media/hero2.jpg" width="1920" height="700" class="img-fluid">
+                <div class="splide__caption">
+                  <h2 class="title caption">Es con Hechos <br> que le cumplimos <br> a Colombia</h2>
+                </div>
+              </li> -->
+              {% for slideVideos in sliderVideos%}
+              <li class="splide__slide">
+                <iframe width="100%" height="100%" src="{{slideVideos.link}}" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-logros">
+      <div class="container-hd">
+        <picture>
+          <img src="{% static 'src/media/260logros.png'%}" alt="nuestros logros" width="250" height="70" class="img-fluid">
+          <a href="https://drive.google.com/file/d/1oUhEbINmlxCiVgLbItCuRyS1fTEIcPII/view?usp=sharing" target="_blank"><img src="{% static 'src/media/descargaPDF.png'%}" alt="ver pdf" width="250" height="70"
+              class="img-fluid"></a>
+        </picture>
+      </div>
+    </section>
+
+    <section class="noticias">
+      <div class="container-hd">
+        <h2 class="title">LE CUMPLIMOS A COLOMBIA</h2>
+        <div class="row">
+          {% for selecionadas in listaDescripcionSelect%}
+          {%for listadescripcion in listaDescripcion%}
+          {%if listadescripcion.id == selecionadas%}
+	<form>
+            <div class="card">
+              <img src="{{listadescripcion.imagen.url}}" alt="vacunacion" width="280" height="200">
+              <h3 class="title">{{listadescripcion.eje.eje}}</h3>
+              <p>{{listadescripcion.titulo}}</p>
+              <input type="hidden" name="CSRFToken"
+                value="OWY4NmQwODE4ODRjN2Q2NTlhMmZlYWEwYzU1YWQwMTVhM2JmNGYxYjJiMGI4MjJjZDE1ZDZMGYwMGEwOA==">
+              <a href="/eje/{{listadescripcion.eje.eje}}" class="boton">Leer más</a>
+            </div>
+          </form>
+          {%endif%}
+          {%endfor%}
+          {%endfor%}
+        </div>
+      </div>
+    </section>
+
+    <section class="videos">
+      <div class="container-hd">
+        <h2 class="title">CUMPLIMOS LO PROMETIDO</h2>
+        <div id="splide__videos" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {% for video in videoscumplimos%}
+              <li class="splide__slide">
+                <div class="card">
+                  <iframe width="100%" height="200" src="{{video.link}}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                  <!--<h3 class="title">{{video.titulo}}</h3>-->
+                  <p>{{video.descripcion}}</p>
+                </div>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Todos los derechos reservados Gobierno de Colombia.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.5.0/dist/js/splide.min.js"></script>
+  <script src="{% static 'src/js/index.js'%}"></script>
+</body>
+
+</html>

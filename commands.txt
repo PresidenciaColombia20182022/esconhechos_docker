@@ -1,0 +1,2 @@
+docker build --tag andricio360/django_esconhechos .
+docker run --publish 8000:8000 andricio360/django_esconhechos

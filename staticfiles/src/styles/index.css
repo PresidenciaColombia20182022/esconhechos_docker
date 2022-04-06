@@ -1,0 +1,475 @@
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it combine with normalize.css
+*/
+ol,
+ul {
+  margin: 0;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* fin reset css */
+/* estilos globales */
+body {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.title {
+  font-family: "Bebas Neue", cursive;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+.img-fluid {
+  height: auto;
+}
+
+.boton {
+  background-color: #386ebc;
+  color: white;
+  padding: 5px 15px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  iframe {
+    min-height: 600px;
+  }
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.modal-bg {
+  position: absolute;
+  background: #333;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-container {
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  padding: 10px;
+  width: 375px;
+}
+
+.modal-container h6 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #386ebc;
+  background: none;
+  border: 0px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container-hd {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.container-fullhd {
+  max-width: 1920px;
+  margin: auto;
+}
+
+.splide__arrows {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .splide__arrows {
+    display: block;
+  }
+}
+
+.splide__arrows button {
+  background-color: unset;
+}
+
+.splide__arrows button svg {
+  fill: white;
+  width: 32px;
+  height: 32px;
+}
+
+.splide__caption h1,
+.splide__caption h2 {
+  text-align: center;
+  margin-top: -30px;
+  padding-bottom: 30px;
+  background-color: #333;
+  color: white;
+  text-shadow: 0 0 1px #333;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .splide__caption h1,
+  .splide__caption h2 {
+    font-size: 48px !important;
+    margin-top: -50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .splide__caption h1,
+  .splide__caption h2 {
+    background-color: unset;
+    font-size: 80px;
+    text-align: left;
+    margin: 0 0 0 100px;
+    position: absolute;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.splide__pagination .is-active {
+  background-color: #f3a83b;
+}
+
+/* home */
+header {
+  background-color: #333;
+  padding: 15px 10px;
+}
+
+header .logo-redes-buscador {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  header .logo-redes-buscador {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  header .redes-buscador {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 100px;
+  }
+}
+
+header .redes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  margin: 20px 0 25px;
+}
+
+header form {
+  position: relative;
+  display: table;
+  margin: auto;
+}
+
+header form input {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 230px;
+}
+
+header form button {
+  background-image: url("/src/media/lupa.png");
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.banner-logros {
+  background-image: url("/src/media/franja-logros.jpg");
+  max-width: 1920px;
+  background-size: cover;
+  margin: auto;
+}
+
+.banner-logros picture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 30px 10px;
+  gap: 40px;
+}
+
+@media (min-width: 1280px) {
+  .banner-logros picture {
+    padding: 80px 10px;
+  }
+  .banner-logros picture img {
+    width: 300px;
+  }
+}
+
+.noticias {
+  padding: 0 10px;
+}
+
+.noticias h2 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+@media (min-width: 768px) {
+  .noticias h2 {
+    font-size: 48px;
+    margin: 60px 0;
+  }
+}
+
+.noticias .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+.noticias .row .card {
+  text-align: center;
+  width: 280px;
+}
+
+.noticias .row .card h3 {
+  margin-top: 10px;
+}
+
+.noticias .row .card p {
+  margin: 10px 0 15px;
+}
+
+.videos h2 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+@media (min-width: 768px) {
+  .videos h2 {
+    font-size: 48px;
+    margin: 60px 0;
+  }
+}
+
+.videos .card {
+  text-align: center;
+  width: 280px;
+  margin: auto;
+}
+
+.videos .card h3 {
+  margin-top: 20px;
+}
+
+.videos .card p {
+  margin: 10px 0;
+}
+
+.videos .splide__arrow--prev {
+  left: -15px;
+}
+
+.videos .splide__arrow--next {
+  right: -15px;
+}
+
+.videos .splide svg {
+  fill: #333;
+}
+
+.videos .splide__pagination {
+  display: none;
+}
+
+footer {
+  background-color: #386ebc;
+  margin-top: 100px;
+  padding: 150px 0 0;
+  border-bottom: 40px solid #333;
+  background-image: url("/src/media/logo-gov.png");
+  background-repeat: no-repeat;
+  background-position: 90%;
+}
+
+footer p {
+  margin: 15px 0;
+  text-align: center;
+  color: white;
+}
+
+/* interna */
+.hechos {
+  margin: 50px 10px;
+}
+
+.hechos .cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (375px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 375px);
+  gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hechos article {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hechos article h6 {
+  font-size: 20px;
+  margin: 10px 0;
+  max-height: 56px;
+  overflow: hidden;
+}
+
+.hechos article p {
+  max-height: 112px;
+  overflow: hidden;
+}
+
+.hechos article img {
+  border-radius: 5px;
+}
+
+.hechos article a {
+  text-align: center;
+  background-color: #f3a83b;
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=index.css.map */
